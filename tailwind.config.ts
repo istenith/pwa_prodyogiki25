@@ -9,7 +9,16 @@ export default {
   ],
   theme: {
   	extend: {
+		gradientColorStops: {
+			black: '#000000',
+			custom: '#09FBD3',
+			date : "#D3D3D3"
+		  },
+	
   		colors: {
+			background: "var(--background)",
+			foreground: "var(--foreground)",
+			custom: '#09FBD3',
   			primary: {
   				DEFAULT: 'hsl(var(--primary))',
   				foreground: 'hsl(var(--primary-foreground))'
@@ -26,8 +35,7 @@ export default {
   			},
   			copper: '#aa662a',
   			gold: '#cfb53b',
-  			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
+
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
