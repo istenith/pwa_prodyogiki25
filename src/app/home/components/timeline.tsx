@@ -29,14 +29,21 @@ export default function Timeline() {
   };
 
   return (
-    <div className="flex flex-col bg-gradient-to-t from-custom to-black w-full h-full p-4">
+    <div className="flex flex-col  w-full h-full p-4">
 
-      <div className="text-custom ml-12 text-[16.3px] mt-4 bg-gradient-to-b from-custom to-black text-transparent bg-clip-text">
+      <div className="text-custom ml-4 text-[24px] mt-7 bg-gradient-to-b from-custom to-black text-transparent bg-clip-text">
         TIMELINE
       </div>
 
       <div className="flex justify-between w-full pt-12 px-4">
-        <button
+
+      </div>
+      <div className="mt-0 flex flex-col  text-center">
+        <div className="text-white text-2xl">{timelineData[currentDayIndex].day}</div>
+        <div className="text-white text-left pl-4 pt-4">
+          {timelineData[currentDayIndex].content}
+        </div>
+        {/* <button
           onClick={goToPreviousDay}
           className=" text-white rounded-full text-4xl p-2 hover:bg-opacity-80"
         >
@@ -47,13 +54,7 @@ export default function Timeline() {
           className=" text-white text-4xl rounded-full p-2 hover:bg-opacity-80"
         >
         &gt;
-        </button>
-      </div>
-      <div className="-mt-8 flex flex-col  text-center">
-        <div className="text-white text-2xl">{timelineData[currentDayIndex].day}</div>
-        <div className="text-white text-left pl-4 pt-4">
-          {timelineData[currentDayIndex].content}
-        </div>
+        </button> */}
       </div>
 
 

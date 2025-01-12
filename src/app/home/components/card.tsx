@@ -4,39 +4,44 @@ export default function Card1() {
   const list = [
     {
       title: "Orange",
-      img: "/_180008d3-2e98-485e-a4fa-d5ba4a5b3843.jpeg",
+      img: "/images/events.png",
       price: "$5.50",
     },
     {
       title: "Tangerine",
-      img: "/_180008d3-2e98-485e-a4fa-d5ba4a5b3843.jpeg",
+      img:"/images/workshop.png",
       price: "$3.00",
     },
     {
-      title: "Apple",
-      img: "/_180008d3-2e98-485e-a4fa-d5ba4a5b3843.jpeg",
-      price: "$4.00",
+      title: "Orange",
+      img: "/images/events.png",
+      price: "$5.50",
     },
     {
-      title: "Banana",
-      img: "/_180008d3-2e98-485e-a4fa-d5ba4a5b3843.jpeg",
-      price: "$2.50",
+      title: "Tangerine",
+      img:"/images/workshop.png",
+      price: "$3.00",
     },
     {
-        title: "Banana",
-        img: "/_180008d3-2e98-485e-a4fa-d5ba4a5b3843.jpeg",
-        price: "$2.50",
-      },
-      {
-        title: "Banana",
-        img: "/_180008d3-2e98-485e-a4fa-d5ba4a5b3843.jpeg",
-        price: "$2.50",
-      },
-      {
-        title: "Banana",
-        img: "/_180008d3-2e98-485e-a4fa-d5ba4a5b3843.jpeg",
-        price: "$2.50",
-      },
+      title: "Orange",
+      img: "/images/events.png",
+      price: "$5.50",
+    },
+    {
+      title: "Tangerine",
+      img:"/images/workshop.png",
+      price: "$3.00",
+    },
+    {
+      title: "Orange",
+      img: "/images/events.png",
+      price: "$5.50",
+    },
+    {
+      title: "Tangerine",
+      img:"/images/workshop.png",
+      price: "$3.00",
+    },
   ];
 
 
@@ -59,17 +64,15 @@ export default function Card1() {
       >
         {list.map((item, index) => (
           <div key={index} className="flex-shrink-0 w-8/12 p-2">
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-white  shadow-lg overflow-hidden rounded-3xl">
               <div className="relative">
                 <img
                   src={item.img}
                   alt={item.title}
-                  className="w-full h-[190px] object-cover rounded-t-lg"
+                  className="w-full h-[190px] object-cover "
          
                 />
-                <div className="absolute bottom-4 right-24 bg-black text-white px-2 py-1 rounded-sm ">
-                  {item.title}
-                  </div>
+               
               </div>
         
             </div>

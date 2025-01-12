@@ -14,6 +14,10 @@ export default {
 			custom: '#09FBD3',
 			date : "#D3D3D3"
 		  },
+		  backgroundImage: {
+			'hero-pattern': "url('/image.png')",
+			'footer-texture': "url('/img/footer-texture.png')",
+		  },
 	
   		colors: {
 			background: "var(--background)",
