@@ -8,7 +8,7 @@ import Burger from './components/hamburger';
 export default function Home() {
   return (
     <>
-      <div className="bg-black bg-[url('/images/bg.png')]  ">
+      <div className="bg-black bg-[url('/images/bg.png')] bg-cover bg-center ">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -21,7 +21,7 @@ export default function Home() {
           <Burger />
 
           <div className=''>
-            <div className='flex flex-col ml-16 pt-32 bg text-white text-opacity-70'>
+            <div className='flex flex-col ml-16 pt-32 bg  text-white text-opacity-70'>
                ISTE NITH HAMIRPUR'S</div>
             <motion.div
               initial={{ opacity: 0 }}

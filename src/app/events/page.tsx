@@ -64,7 +64,7 @@ export default function Event() {
 
   return (
     <>
-      <div className="bg-black bg-[url('/images/bg.png')]">
+      <div className="bg-black bg-[url('/images/bg.png')]  bg-cover bg-center">
         <Burger />
         <div className="text-center pt-24 text-white font-bold text-[28px]">OUR EVENTS</div>
         <div className="flex flex-col pt-8 justify-center items-center text-white">
