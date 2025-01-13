@@ -15,10 +15,6 @@
   scrollbar-width: none;
 }
 
-.bg-secondary {
-  background: var(--secondary);
-}
-
 .bg-parent {
   background: var(--dark-secondary);
 }
@@ -59,7 +55,6 @@
 
 /*** Classes for wavy background here ***/
 .darkAccentWaveBg {
-  background-image: url('../../public/background/waves/starryBg.svg'), url('../../public/background/waves/twoWaves.svg'), url('../../public/background/waves/darkAcbcentWaveFlipped.webp');
   background-position: -200px 0px, -150px 100px, 0px 0px;
   background-repeat: no-repeat;
   background-size: cover, cover, 100%;
@@ -84,7 +79,7 @@
 }
 
 .bg-stackedWaves {
-  background-image: url('../../public/background/waves/stacked-waves-haikei.svg');
+
   background-attachment: fixed;
   background-size: cover;
   background-clip: border-box;
@@ -97,7 +92,7 @@
 }
 
 .bg-bottom-navigation {
-  background-image: url('../../public/background/waves/bottomNavigationSingleCurve.webp');
+
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: 0px 300px;
