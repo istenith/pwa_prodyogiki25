@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
   	extend: {
+		fontFamily: {
+			inter: ['inter'], 
+		  },
   		colors: {
   			primary: {
   				DEFAULT: 'hsl(var(--primary))',
