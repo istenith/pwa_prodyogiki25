@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import Image from "next/image";
 export default function Card1() {
   const list = [
     {
@@ -66,7 +66,10 @@ export default function Card1() {
           <div key={index} className="flex-shrink-0 w-8/12 p-2">
             <div className="bg-white  shadow-lg overflow-hidden rounded-3xl">
               <div className="relative">
-                <img
+                <Image
+                width={149}
+                  height={149}
+              
                   src={item.img}
                   alt={item.title}
                   className="w-full h-[190px] object-cover "

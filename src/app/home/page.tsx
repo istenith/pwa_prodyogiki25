@@ -1,9 +1,10 @@
 "use client"
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import Card1 from './components/card';
 import Timeline from './components/timeline';
 import Burger from './components/hamburger';
+import Image from 'next/image';
 
 export default function Home() {
   return (

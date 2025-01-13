@@ -19,6 +19,9 @@ export default {
 			'footer-texture': "url('/img/footer-texture.png')",
 		  },
 	
+		fontFamily: {
+			inter: ['inter'], 
+		  },
   		colors: {
 			background: "var(--background)",
 			foreground: "var(--foreground)",

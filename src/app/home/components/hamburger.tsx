@@ -47,6 +47,13 @@ export default function Burger() {
             <li>
               <Link href="/members" className="hover:text-custom transition-all duration-200">Members</Link>
             </li>
+            <li>
+              <Link href="/profile" className="hover:text-custom transition-all duration-200">Profile</Link>
+            </li>
+
+            <li>
+              <Link href="/workshop" className="hover:text-custom transition-all duration-200">Workshop</Link>
+            </li>
           </ul>
         </div>
       )}

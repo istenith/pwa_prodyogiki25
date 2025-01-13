@@ -1,6 +1,7 @@
  "use client"
 import { useState } from "react";
 import Burger from "../home/components/hamburger";
+import Image from "next/image";
 
 interface Event {
   name: string;
@@ -90,7 +91,10 @@ export default function Event() {
                   <div className={`  cursor-pointer transition-transform duration-500 ${
                     visibleEvent === index ? "rotate-0" : "rotate-180"
                   }`}>
-                    <img
+                    <Image
+                      width={149} 
+                      height={149} 
+        
                       src={event.image}
                       alt="Event Image"
                       className="w-full h-full object-cover rounded-t-[30px]"

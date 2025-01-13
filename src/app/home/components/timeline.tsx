@@ -53,8 +53,8 @@ export default function Timeline() {
           onClick={goToNextDay}
           className=" text-white text-4xl rounded-full p-2 hover:bg-opacity-80"
         >
-        &gt;
-        </button> */}
+        &gt; */}
+        {/* </button> */}
       </div>
 
 
