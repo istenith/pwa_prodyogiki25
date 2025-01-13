@@ -16,14 +16,14 @@ export default function Home() {
           transition={{ duration: 4 }}
         >
 <div className='w-12 h-12 absolute  top-7 left-3'>
-  <img src="/images/logo.png" alt="" />
+  <Image width={149} height={149} src="/images/logo.png" alt="" />
 </div>
 
           <Burger />
 
           <div className=''>
             <div className='flex flex-col ml-16 pt-32 bg  text-white text-opacity-70'>
-               ISTE NITH HAMIRPUR'S</div>
+               ISTE NIT HAMIRPUR&apos;S</div>
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -32,7 +32,8 @@ export default function Home() {
             >
                           <div className="flex flex-row ml-12 mt-0">
               <div className="-pt-12">
-                <img
+                <Image
+                width={149} height={149}
                   src="/images/logo.png"
                   className="w-[60px] h-[88px]"
                   alt="Logo"
@@ -40,7 +41,7 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col mt-4 -ml-2 font-bold text-[33.81px] text-white text-opacity-70">
-                RODYOGIKI'25
+                RODYOGIKI&apos;25
               </div>
             </div>
 

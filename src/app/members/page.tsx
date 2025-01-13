@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Burger from '../home/components/hamburger';
+import Image from 'next/image';
 
 interface Member {
   name: string;
@@ -24,7 +25,10 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => (
   <div className='h-[210px]'>
     <div className="w-[153px] h-[153px] bg-[url('/images/mem.png')] rounded-sm">
       <div className="">
-        <img className="w-[100px] h-[153px] mx-auto justify-center" src={member.image} alt={member.name} />
+        <Image
+        width={100} 
+        height={153}
+        className="w-[100px] h-[153px] mx-auto justify-center" src={member.image} alt={member.name} />
       </div>
       <div className="flex flex-col justify-center text-white">
         <div className="text-center pt-4">{member.name}</div>

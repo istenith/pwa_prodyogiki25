@@ -52,7 +52,7 @@ export default function Card1() {
     }, 3000); 
 
     return () => clearInterval(interval);
-  }, []);
+  }, [list.length]);
 
   return (
     <div className="relative w-full overflow-hidden">

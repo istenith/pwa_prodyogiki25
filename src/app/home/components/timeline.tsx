@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 export default function Timeline() {
-
   const timelineData = [
     {
       day: "DAY 1",
@@ -19,45 +18,41 @@ export default function Timeline() {
 
   const [currentDayIndex, setCurrentDayIndex] = useState(0);
 
-
   const goToNextDay = () => {
-    setCurrentDayIndex((prevIndex) => (prevIndex + 1) % timelineData.length); // Loop to the first day when reaching the end
+    setCurrentDayIndex((prevIndex) => (prevIndex + 1) % timelineData.length);
   };
 
   const goToPreviousDay = () => {
-    setCurrentDayIndex((prevIndex) => (prevIndex - 1 + timelineData.length) % timelineData.length); // Loop to the last day when going backwards
+    setCurrentDayIndex((prevIndex) => (prevIndex - 1 + timelineData.length) % timelineData.length);
   };
 
   return (
-    <div className="flex flex-col  w-full h-full p-4">
-
+    <div className="flex flex-col w-full h-full p-4">
       <div className="text-custom ml-4 text-[24px] mt-7 bg-gradient-to-b from-custom to-black text-transparent bg-clip-text">
         TIMELINE
       </div>
 
-      <div className="flex justify-between w-full pt-12 px-4">
-
-      </div>
-      <div className="mt-0 flex flex-col  text-center">
+      <div className="flex justify-between w-full pt-12 px-4"></div>
+      <div className="mt-0 flex flex-col text-center">
         <div className="text-white text-2xl">{timelineData[currentDayIndex].day}</div>
         <div className="text-white text-left pl-4 pt-4">
           {timelineData[currentDayIndex].content}
         </div>
-        {/* <button
-          onClick={goToPreviousDay}
-          className=" text-white rounded-full text-4xl p-2 hover:bg-opacity-80"
-        >
-          &lt;
-        </button>
-        <button
-          onClick={goToNextDay}
-          className=" text-white text-4xl rounded-full p-2 hover:bg-opacity-80"
-        >
-        &gt; */}
-        {/* </button> */}
+        <div className="flex justify-center space-x-4 mt-4">
+          <button
+            onClick={goToPreviousDay}
+            className="text-white text-4xl rounded-full p-2 hover:bg-opacity-80"
+          >
+            &lt;
+          </button>
+          <button
+            onClick={goToNextDay}
+            className="text-white text-4xl rounded-full p-2 hover:bg-opacity-80"
+          >
+            &gt;
+          </button>
+        </div>
       </div>
-
-
     </div>
   );
 }

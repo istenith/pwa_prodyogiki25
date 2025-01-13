@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Landing() {
   useEffect(() => {
@@ -29,7 +30,10 @@ export default function Landing() {
         <div className="justify-center text-center pt-[100px] text-black text-[20px]">
         I S T E - N I T H
       </div>
-      <img className="mx-auto h-52 mt-4 w-40" src="/images/prodylogoblack-01.png" alt="Logo" />
+      <Image
+      width={149}
+       height={149}
+       className="mx-auto h-52 mt-4 w-40" src="/images/prodylogoblack-01.png" alt="Logo" />
       <div className="pt-4 text-center text-black text-[31px]">
         P R O D Y O G I K I
       </div>
