@@ -81,7 +81,7 @@
 }
 
 .bg-stackedWaves {
-  background-image: url(/images/Frame.png);
+  background-image: url('/images/Frame.png');
   background-attachment: fixed;
   background-size: cover;
   background-clip: border-box;

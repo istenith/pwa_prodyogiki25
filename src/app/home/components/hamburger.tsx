@@ -54,6 +54,9 @@ export default function Burger() {
             <li>
               <Link href="/workshop" className="hover:text-custom transition-all duration-200">Workshop</Link>
             </li>
+            <li>
+              <Link href="/timeline" className="hover:text-custom transition-all duration-200">TimeLine</Link>
+            </li>
           </ul>
         </div>
       )}
