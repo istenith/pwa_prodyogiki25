@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 export default function Landing() {
   useEffect(() => {
     const timer = setTimeout(() => {
-      window.location.href = "http://192.168.229.188:3000/home";
+      window.location.href = "http://34.131.38.123:3001/home";
     }, 5000);
 
     return () => clearTimeout(timer);
