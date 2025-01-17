@@ -19,6 +19,7 @@ const cards = [
   },
 ];
 
+
 const WorkshopSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 

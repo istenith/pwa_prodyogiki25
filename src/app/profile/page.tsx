@@ -12,26 +12,42 @@ const Profile = () => {
     "Aqua Fortress",
     "Mouse Trap",
   ];
-  // const gridbox="border-2 border-blue-500 rounded-lg p-2 bg-[#FFFFFF] bg-opacity-15";
-  // const gridevents =[
-  //   "Abhedya",
-  //   "Chemystrey",
-  //   "Aqua Fortress",
-  //   "Mouse Trap",
 
-  // ];
+const events= [
+  {
+    id: 1,
+    img: "/image77.jpg",
+    text:"mousetrap"
+   },
+   {
+    id: 2,
+    img: "/image77.jpg",
+    text:"abhedya"
+   },
+   {
+    id: 3,
+    img: "/image77.jpg",
+    text:"aeroquest"
+   },
+   {
+    id: 4,
+    img: "/image77.jpg",
+    text:"CSE Event"
+   },
+
+];
 
   return (
     <div
-      className="flex flex-col items-center min-h-screen bg-cover bg-center bg-no-repeat"
+      className="flex flex-col items-center min-h-screen bg-cover bg-center bg-no-repeat "
        style={{
         backgroundImage: `url('/background.png')`,
        }}
     >
       <div className='participant_info font-inter flex flex-col text-white items-center justify-center'>
-        <div className="w-32 h-32 rounded-full overflow-hidden bg-white my-3">
+        <div className="w-32 h-32 rounded-full overflow-hidden my-3">
         <Image 
-  src="/profile.jpg" 
+  src="/profile.svg" 
   alt="Circular Image" 
   width={500} 
   height={500} 
@@ -48,12 +64,35 @@ const Profile = () => {
       <div className='text-white font-semibold text-lg'>More Events</div>
       <MdKeyboardArrowRight size={24} className='text-white'/>
       </div>
-      {/* <div className = 'grid grid-rows-2 grid-flow-col gap-4'>
-        <div className='$`{gridbox}`'>Glider</div>
-        <div>Mousetrap</div>
-        <div>Abhedya</div>
-        <div>Monopoly</div>
-        </div>    */}
+      
+<div className="grid grid-rows-2 grid-flow-col gap-4 bg-[##010101] p-4 w-full text-white ">
+  {events.map((event) => (
+    <div key={event.id} className="flex items-center mb-4 hover:scale-110 transition-all duration-300">
+      
+      <div
+        className="circle z-10 w-16 h-16 rounded-full bg-cover bg-center bg-black border-[#010101] border-[3px] "
+        
+      >
+        <Image
+              src={event.img}
+              alt={event.text}
+              width={64} 
+              height={64} 
+              className="rounded-full object-cover"
+            />
+      </div>
+
+      <div
+        className="rectangle w-32 h-12 bg-[#FFFFFF] bg-opacity-15 pl-8 py-3 rounded-r-[20px] text-sm font-medium -ml-6"
+      >
+        {event.text}
+        
+      </div>
+    </div>
+  ))}
+</div>
+
+
     </div>
   );
 };
