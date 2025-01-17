@@ -46,7 +46,7 @@ export default function Home() {
             </div>
 
             <div className="text-center -ml-6 text-white text-opacity-60">
-              24-26th January
+              Coming soon
             </div>
              
             </motion.div>
