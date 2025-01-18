@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { redirect } from 'next/navigation';
 export default function Landing() {
   const [removeBorders, setRemoveBorders] = useState(false);
-  const [glowText, setGlowText] = useState(false); 
 
 
     useEffect(() => {
@@ -18,13 +17,10 @@ export default function Landing() {
       setRemoveBorders(true);
     }, 3000);
 
-    const glowTimer = setTimeout(() => {
-      setGlowText(true); 
-    }, 3300); 
+
 
     return () => {
       clearTimeout(timer);
-      clearTimeout(glowTimer);
     };
   }, []);
 

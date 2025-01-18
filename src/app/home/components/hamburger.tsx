@@ -9,12 +9,10 @@ export default function Burger() {
 
   return (
     <>
-      {/* Burger Icon */}
       <div
         className="absolute top-11  right-8 cursor-pointer z-[500]"
         onClick={toggleMenu}
       >
-        {/* Hamburger Bars */}
         <div
           className={`w-[21px] h-[2px] bg-white bg-opacity-80 mb-1 transition-transform duration-300 ${
             isMenuOpen ? 'rotate-45 translate-y-1' : ''
@@ -56,6 +54,9 @@ export default function Burger() {
             </li>
             <li>
               <Link href="/timeline" className="hover:text-custom transition-all duration-200">TimeLine</Link>
+            </li>
+            <li>
+              <Link href="/signup" className="hover:text-custom transition-all duration-200">SignUp</Link>
             </li>
           </ul>
         </div>

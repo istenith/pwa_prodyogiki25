@@ -2,7 +2,8 @@
 import React, { useState,useEffect } from 'react';
 import { redirect } from 'next/navigation';
 import { motion } from 'framer-motion';
-import Timeline from '../../src/app/componenets/threejs';
+import Image from 'next/image';
+
 
 export default function Landing() {
   const [animateBack, setAnimateBack] = useState(false);
@@ -27,7 +28,10 @@ export default function Landing() {
           transition={{ duration: 0.8}}
           onAnimationComplete={handleAnimationComplete} 
         >
-          <img src="/images/logo.png" alt="Logo" />
+          <Image 
+          height={200}
+          width={200}
+          className="" src="/images/logo.png" alt="Logo" />
         </motion.div>
       </div>
     </div>

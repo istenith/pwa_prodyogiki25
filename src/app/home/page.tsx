@@ -54,8 +54,12 @@ export default function Home() {
         >
           <div className="absolute inset-0 backdrop-blur-lg bg-gradient-to-t from-custom/40 to-transparent z-0"></div>
           <div className="relative z-10 flex flex-row ml-8 text-white my-auto">
-            <img src="/images/logo.png" alt="Logo" className="w-24 h-40" />
-            <div className="text-3xl mt-16">PRODYOGIKI'25</div>
+            <Image
+            height={200}
+            width={200}
+             src="/images/logo.png" alt="Logo" 
+             className="w-24 h-40" />
+            <div className="text-3xl mt-16">PRODYOGIKI&apos;25</div>
           </div>
         </motion.div>
       )}
@@ -78,7 +82,7 @@ export default function Home() {
               </div>
               <div className="flex flex-col pt-3 ml-2">
                 <div className="text-white">Hello,</div>
-                <div className="text-white -mt-1 text-opacity-70">Welcome to PRODYOGIKI'25</div>
+                <div className="text-white -mt-1 text-opacity-70">Welcome to PRODYOGIKI&apos;25</div>
               </div>
             </div>
 

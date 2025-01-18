@@ -2,7 +2,7 @@
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 type Testimonial = {
   quote: string;
@@ -23,25 +23,26 @@ export const AnimatedTestimonials = ({
 
   const randomRotateY = () => Math.floor(Math.random() * 21) - 10;
 
-  useEffect(() => {
-    const randomValues = testimonials.map(() => randomRotateY());
-    setRotateYValues(randomValues);
-
-    if (autoplay) {
-      const interval = setInterval(handleNext, 5000);
-      return () => clearInterval(interval);
-    }
-  }, [autoplay, testimonials]);
-
-  const handleNext = () => {
+  // Memoize handleNext function using useCallback
+  const handleNext = useCallback(() => {
     setActive((prev) => (prev + 1) % testimonials.length);
-  };
+  }, [testimonials.length]);
 
   const handlePrev = () => {
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
   const isActive = (index: number) => index === active;
+
+  useEffect(() => {
+    const randomValues = testimonials.map(() => randomRotateY());
+    setRotateYValues(randomValues);
+
+    if (autoplay) {
+      const interval = setInterval(handleNext, 5000); 
+      return () => clearInterval(interval);
+    }
+  }, [autoplay, testimonials, handleNext]); 
 
   return (
     <div className="antialiased font-sans pt-0">
