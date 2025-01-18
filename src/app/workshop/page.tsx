@@ -21,6 +21,7 @@ const cards = [
   },
 ];
 
+
 const WorkshopSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -77,7 +78,7 @@ const WorkshopSlider = () => {
         </div>
       </div>
 
-      {/* Indicators */}
+    
       <div className="flex space-x-2 mt-4">
         {cards.map((_, index) => (
           <div
