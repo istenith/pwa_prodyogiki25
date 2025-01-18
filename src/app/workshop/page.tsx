@@ -74,7 +74,7 @@ const WorkshopSlider = () => {
         </div>
       </div>
 
-      {/* Indicators */}
+    
       <div className="flex space-x-2 mt-4">
         {cards.map((_, index) => (
           <div

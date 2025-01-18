@@ -1,9 +1,11 @@
 "use client";
 
 import React from 'react';
+import { useState,useEffect } from 'react';
 import Image from 'next/image';
 import { MdKeyboardArrowRight } from "react-icons/md";
 import CircularProgressBar from '../componenets/progressbar';
+
 const Profile = () => {
 
   const eventNames = [
@@ -34,8 +36,42 @@ const events= [
     img: "/image77.jpg",
     text:"CSE Event"
    },
-
+//    {
+//     id: 5,
+//     img: "/image77.jpg",
+//     text:"event5"
+//    },
+//    {
+//     id: 6,
+//     img: "/image77.jpg",
+//     text:"event6"
+//    },
+//    {
+//     id: 7,
+//     img: "/image77.jpg",
+//     text:"event7"
+//    },
+//    {
+//     id: 8,
+//     img: "/image77.jpg",
+//     text:"event8"
+//    },
 ];
+
+
+// const [currentIndex, setCurrentIndex] = useState(0);
+
+// useEffect(() => {
+//   const interval = setInterval(() => {
+//     setCurrentIndex((prevIndex) => (prevIndex + 4) % events.length);
+//   }, 4000);
+
+//   return () => clearInterval(interval);
+// }, [events.length]);
+
+// const handleCardChange = (index: number) => {
+//   setCurrentIndex(index);
+// };
 
   return (
     <div
@@ -64,7 +100,7 @@ const events= [
       <div className='text-white font-semibold text-lg'>More Events</div>
       <MdKeyboardArrowRight size={24} className='text-white'/>
       </div>
-      
+        
 <div className="grid grid-rows-2 grid-flow-col gap-4 bg-[##010101] p-4 w-full text-white ">
   {events.map((event) => (
     <div key={event.id} className="flex items-center mb-4 hover:scale-110 transition-all duration-300">
