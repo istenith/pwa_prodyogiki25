@@ -66,9 +66,9 @@ export default function Event() {
 
   const toggleEventDetails = (index: number) => {
     if (visibleEvent === index) {
-      setVisibleEvent(null); // Hide if the same event is clicked
+      setVisibleEvent(null); 
     } else {
-      setVisibleEvent(index); // Show the clicked event
+      setVisibleEvent(index); 
     }
   };
 
@@ -93,7 +93,6 @@ export default function Event() {
                   stiffness: 100,
                 }}
               >
-                {/* Event name clickable with rotation animation */}
                 <motion.div
                   onClick={() => toggleEventDetails(index)}
                   className={`w-3/4 border border-white rounded-[20px] py-2 pl-4 text-[24px] mb-[29px] cursor-pointer transition-transform duration-500 ${
@@ -108,7 +107,6 @@ export default function Event() {
                   {event.name}
                 </motion.div>
 
-                {/* Event details (visible if clicked) */}
                 <motion.div
                   className={`w-3/4 relative h-auto rounded-[30px] border border-white overflow-hidden text-white ${
                     visibleEvent === index

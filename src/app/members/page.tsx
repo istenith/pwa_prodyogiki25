@@ -1,5 +1,5 @@
 "use client"; 
-import React from 'react';
+import React, { useState } from 'react';
 import Burger from '../home/components/hamburger';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -8,6 +8,7 @@ interface Member {
   name: string;
   role: string;
   image: string;
+  bitmoji: string;
 }
 
 interface MembersData {
@@ -22,61 +23,70 @@ interface MemberCardProps {
   member: Member;
 }
 
-const MemberCard: React.FC<MemberCardProps> = ({ member }) => (
-  <motion.div
-    className="h-[230px] mx-auto"
-    initial={{ opacity: 0, scale: 0.9 }} 
-    animate={{ opacity: 1, scale: 1 }} 
-    transition={{ duration: 1 }} 
-  >
-    <div className="w-[153px] h-[160px] bg-black border-t-4 border-b-2 border-x-2 border-[#008080] rounded-xl">
-      <div>
-        <Image
-          width={100}
-          height={153}
-          className="w-[100px] h-[153px] mx-auto justify-center"
-          src={member.image}
-          alt={member.name}
-        />
+const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
+  const [showOriginalImage, setShowOriginalImage] = useState(false); 
+
+  const handleImageClick = () => {
+    setShowOriginalImage(prev => !prev); 
+  };
+
+  return (
+    <motion.div
+      className="h-[230px] mx-auto"
+      initial={{ opacity: 0, scale: 0.9 }} 
+      animate={{ opacity: 1, scale: 1 }} 
+      transition={{ duration: 1 }} 
+    >
+      <div className="w-[153px] h-[160px] bg-black border-t-4 border-b-2 border-x-2 border-[#008080] rounded-xl">
+        <div className="w-full" onClick={handleImageClick}>
+
+          <Image
+            width={153}
+            height={200}
+            className="w-[100px] h-[153px] mx-auto justify-center"
+            src={showOriginalImage ? member.image : member.bitmoji}
+            alt={member.name}
+          />
+        </div>
+        <div className="flex flex-col justify-center text-white">
+          <div className="text-center pt-4">{member.name}</div>
+          <div className="text-center pb-4">{member.role}</div>
+        </div>
       </div>
-      <div className="flex flex-col justify-center text-white">
-        <div className="text-center pt-4">{member.name}</div>
-        <div className="text-center pb-4">{member.role}</div>
-      </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
+};
 
 const membersData: MembersData = {
   coreTeam: [
-    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/card.png' },
-    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/card.png' },
-    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/card.png' },
-    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/card.png' },
+    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/1.png', bitmoji: '/images/card.png' },
+    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/1.png', bitmoji: '/images/card.png' },
+    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/1.png', bitmoji: '/images/card.png' },
+    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/1.png', bitmoji: '/images/card.png' },
   ],
   techTeam: [
-    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/card.png' },
-    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/card.png' },
-    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/card.png' },
-    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/card.png' },
+    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/1.png', bitmoji: '/images/card.png' },
+    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/1.png', bitmoji: '/images/card.png' },
+    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/1.png', bitmoji: '/images/card.png' },
+    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/1.png', bitmoji: '/images/card.png' },
   ],
   designTeam: [
-    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/card.png' },
-    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/card.png' },
-    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/card.png' },
-    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/card.png' },
+    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/1.png', bitmoji: '/images/card.png' },
+    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/1.png', bitmoji: '/images/card.png' },
+    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/1.png', bitmoji: '/images/card.png' },
+    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/1.png', bitmoji: '/images/card.png' },
   ],
   FinanceTeam: [
-    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/card.png' },
-    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/card.png' },
-    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/card.png' },
-    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/card.png' },
+    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/1.png', bitmoji: '/images/card.png' },
+    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/1.png', bitmoji: '/images/card.png' },
+    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/1.png', bitmoji: '/images/card.png' },
+    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/1.png', bitmoji: '/images/card.png' },
   ],
   PRTeam: [
-    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/card.png' },
-    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/card.png' },
-    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/card.png' },
-    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/card.png' },
+    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/1.png', bitmoji: '/images/card.png' },
+    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/1.png', bitmoji: '/images/card.png' },
+    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/1.png', bitmoji: '/images/card.png' },
+    { name: 'Gugli Thakur', role: 'Secretary', image: '/images/1.png', bitmoji: '/images/card.png' },
   ],
 };
 
@@ -92,7 +102,7 @@ const Members: React.FC = () => {
     <div className="bg-black bg-[url('/images/member.png')] bg-cover bg-center h-screen bg-repeat-y">
       <Burger />
 
-      <div className="flex pt-24 pl-4 justify-start items-center space-x-6  overflow-x-auto whitespace-nowrap">
+      <div className="flex pt-24 pl-4 justify-start items-center space-x-6 overflow-x-auto whitespace-nowrap">
         {/* Design Team Button */}
         <motion.div
           className="flex flex-col cursor-pointer transition-transform duration-300 transform hover:scale-110 hover:bg-opacity-40 hover:rounded-xl p-2"
@@ -123,8 +133,8 @@ const Members: React.FC = () => {
         <motion.div
           className="flex flex-col cursor-pointer transition-transform duration-300 transform hover:scale-110 hover:rounded-xl p-2"
           onClick={() => scrollToSection('tech-team')}
-          whileHover={{ scale: 1.1 }} // Add hover effect
-          whileTap={{ scale: 0.95 }}  // Add tap effect
+          whileHover={{ scale: 1.1 }} 
+          whileTap={{ scale: 0.95 }}  
         >
           <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center">
             <span className="text-xl text-black">💻</span>
@@ -136,8 +146,8 @@ const Members: React.FC = () => {
         <motion.div
           className="flex flex-col cursor-pointer transition-transform duration-300 transform hover:scale-110 hover:rounded-xl p-2"
           onClick={() => scrollToSection('finance-team')}
-          whileHover={{ scale: 1.1 }} // Add hover effect
-          whileTap={{ scale: 0.95 }}  // Add tap effect
+          whileHover={{ scale: 1.1 }} 
+          whileTap={{ scale: 0.95 }}  
         >
           <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center">
             <span className="text-xl text-black">💰</span>
@@ -145,106 +155,64 @@ const Members: React.FC = () => {
           <div className="text-white text-center pt-1">Finance Team</div>
         </motion.div>
 
+        {/* PR Team Button */}
         <motion.div
           className="flex flex-col cursor-pointer transition-transform duration-300 transform hover:scale-110 hover:rounded-xl p-2"
           onClick={() => scrollToSection('pr-team')}
           whileHover={{ scale: 1.1 }} 
-          whileTap={{ scale: 0.95 }} 
+          whileTap={{ scale: 0.95 }}  
         >
           <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center">
             <span className="text-xl text-black">📢</span>
           </div>
           <div className="text-white text-center pt-1">PR Team</div>
         </motion.div>
-
       </div>
 
       {/* Core Team Section */}
-      <motion.div
-        id="core-team"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <div className="flex flex-row justify-center text-[24px] pt-7 items-center text-white text-opacity-70">
-          CORE TEAM
-        </div>
-        <div className="grid grid-cols-2 pt-8 mx-8 gap-4">
+      <div id="core-team" className="py-16">
+        <div className="flex flex-wrap justify-center">
           {membersData.coreTeam.map((member, index) => (
             <MemberCard key={index} member={member} />
           ))}
         </div>
-      </motion.div>
-
-      {/* Tech Team Section */}
-      <motion.div
-        id="tech-team"
-        className="bg-black bg-[url('/images/member.png')] bg-cover bg-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <div className="flex flex-row justify-center text-[24px] pt-20 items-center text-white text-opacity-70">
-          TECH TEAM
-        </div>
-        <div className="grid grid-cols-2 pt-8 mx-8 gap-4">
-          {membersData.techTeam.map((member, index) => (
-            <MemberCard key={index} member={member} />
-          ))}
-        </div>
-      </motion.div>
+      </div>
 
       {/* Design Team Section */}
-      <motion.div
-        id="design-team"
-        className="bg-black bg-[url('/images/member.png')] bg-cover bg-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <div className="flex flex-row justify-center text-[24px] pt-20 items-center text-white text-opacity-70">
-          DESIGN TEAM
-        </div>
-        <div className="grid grid-cols-2 pt-8 mx-8 gap-4">
+      <div id="design-team" className="py-16">
+        <div className="flex flex-wrap justify-center">
           {membersData.designTeam.map((member, index) => (
             <MemberCard key={index} member={member} />
           ))}
         </div>
-      </motion.div>
+      </div>
 
-      <motion.div
-        id="finance-team"
-        className="bg-black bg-[url('/images/member.png')] bg-cover bg-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <div className="flex flex-row justify-center text-[24px] pt-20 items-center text-white text-opacity-70">
-          FINANCE TEAM
+      {/* Tech Team Section */}
+      <div id="tech-team" className="py-16">
+        <div className="flex flex-wrap justify-center">
+          {membersData.techTeam.map((member, index) => (
+            <MemberCard key={index} member={member} />
+          ))}
         </div>
-        <div className="grid grid-cols-2 pt-8 mx-8 gap-4">
+      </div>
+
+      {/* Finance Team Section */}
+      <div id="finance-team" className="py-16">
+        <div className="flex flex-wrap justify-center">
           {membersData.FinanceTeam.map((member, index) => (
             <MemberCard key={index} member={member} />
           ))}
         </div>
-      </motion.div>
+      </div>
 
-      <motion.div
-        id="pr-team"
-        className="bg-black bg-[url('/images/member.png')] bg-cover bg-center min-h-screen"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <div className="flex flex-row justify-center text-[24px] pt-20 items-center text-white text-opacity-70">
-          PR Team
-        </div>
-        <div className="grid grid-cols-2 pt-8 mx-8 gap-4">
+      {/* PR Team Section */}
+      <div id="pr-team" className="py-16">
+        <div className="flex flex-wrap justify-center">
           {membersData.PRTeam.map((member, index) => (
             <MemberCard key={index} member={member} />
           ))}
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

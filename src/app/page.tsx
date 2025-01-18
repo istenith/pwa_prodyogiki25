@@ -14,7 +14,7 @@ export default function Landing() {
       useEffect(() => {
         setTimeout(() => {
           redirect('/home');
-        }, 1000);
+        }, 2000);
       }, []);
     
 
@@ -24,7 +24,7 @@ export default function Landing() {
         <motion.div
           initial={{ rotate: 0, scale: 0.5 }} 
           animate={animateBack ? { rotate: 0, scale: 0.5 } : { rotate: -30, scale: 1.2 }} 
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.8}}
           onAnimationComplete={handleAnimationComplete} 
         >
           <img src="/images/logo.png" alt="Logo" />
