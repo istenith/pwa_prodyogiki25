@@ -1,3 +1,4 @@
+/* globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,7 +15,6 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
 
 .bg-parent {
   background: var(--dark-secondary);
@@ -54,9 +54,7 @@
     #2f383a;
 }
 
-/*** Classes for wavy background here ***/
 .darkAccentWaveBg {
-
   background-position: -200px 0px, -150px 100px, 0px 0px;
   background-repeat: no-repeat;
   background-size: cover, cover, 100%;
@@ -70,7 +68,6 @@
   0% {
     background-position: 200% 0%;
   }
-
   100% {
     background-position: -200% 0%;
   }
@@ -81,7 +78,7 @@
 }
 
 .bg-stackedWaves {
-  background-image: url('/images/Frame.png');
+  background-color: #000000;
   background-attachment: fixed;
   background-size: cover;
   background-clip: border-box;
@@ -94,8 +91,6 @@
 }
 
 .bg-bottom-navigation {
- 
- 
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: 0px 300px;
@@ -103,13 +98,13 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  overflow: scroll;
 }
 
 @layer base {
   body {
     @apply bg-background text-foreground;
   }
-
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -166,12 +161,10 @@ body {
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
+.glow-text {
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.3);
+}
 
-  body {
-    @apply bg-background text-foreground;
-  }
+::-webkit-scrollbar {
+  display: none;
 }

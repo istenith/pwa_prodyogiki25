@@ -1,4 +1,6 @@
 import type { Config } from "tailwindcss";
+// tailwind.config.js
+
 
 export default {
   darkMode: ["class"],
@@ -9,23 +11,21 @@ export default {
   ],
   theme: {
   	extend: {
-		gradientColorStops: {
-			black: '#000000',
-			custom: '#09FBD3',
-			date : "#D3D3D3"
-		  },
-		  backgroundImage: {
-			'hero-pattern': "url('/image.png')",
-			'footer-texture': "url('/img/footer-texture.png')",
-		  },
-	
-		fontFamily: {
-			inter: ['inter'], 
-		  },
+  		gradientColorStops: {
+  			black: '#000000',
+  			custom: '#09FBD3',
+  			date: '#D3D3D3'
+  		},
+
+  		fontFamily: {
+  			inter: [
+  				'inter'
+  			]
+  		},
   		colors: {
-			background: "var(--background)",
-			foreground: "var(--foreground)",
-			custom: '#09FBD3',
+  			background: 'hsl(var(--background))',
+  			foreground: 'hsl(var(--foreground))',
+  			custom: '#09FBD3',
   			primary: {
   				DEFAULT: 'hsl(var(--primary))',
   				foreground: 'hsl(var(--primary-foreground))'
@@ -42,7 +42,6 @@ export default {
   			},
   			copper: '#aa662a',
   			gold: '#cfb53b',
-
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
