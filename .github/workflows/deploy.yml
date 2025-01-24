@@ -36,7 +36,7 @@ jobs:
 
             # Pull changes and rebuild
             cd /home/iste/iste-projects/pwa_prodyogiki25
-            git remote set-url origin git@github.com:istenith/pwa_prodyogiki25.git
+            git remote set-url origin https://github.com/istenith/pwa_prodyogiki25.git
             git fetch origin main
             git reset --hard origin/main
             npm install
