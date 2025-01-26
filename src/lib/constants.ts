@@ -1,4 +1,4 @@
-import { LinkState,Timestate ,MembersData,Event,TimelineEvent} from "./type";
+import { LinkState,Timestate ,MembersData,Event,TimelineEvent,timeline} from "./type";
 
 export const links: LinkState[] = [
   { href: "/home", name: "Home" },
@@ -8,6 +8,7 @@ export const links: LinkState[] = [
   { href: "/workshop", name: "Workshop" },
   { href: "/timeline", name: "Timeline" },
   { href: "/signup", name: "SignUp" },
+  { href:"/login",name:"Login"}
 ];
 
 export const testimonials = [
@@ -168,3 +169,26 @@ export const teamSections = [
         "Lorem ipsum dolor sit amet consectetur laboriosam deleniti repellendus? Dolorem odit aut ea repellat id sed.",
     },
   ];
+  export const timelineData3: timeline[] = [
+    {
+      day: 'DAY-1',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      margin: '100px'
+    },
+    {
+      day: 'DAY-2',
+      description: 'Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam.',
+      margin: '500px'
+    },
+    {
+      day: 'DAY-3',
+      description: 'Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Nulla sit amet est tincidunt, malesuada nisi vel, dapibus leo.',
+      margin: '900px'
+    },
+    {
+      day: 'DAY-4',
+      description: 'Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Nulla sit amet est tincidunt, malesuada nisi vel, dapibus leo. Nulla sit amet lectus sollicitudin tristique.',
+      margin: '1300px'
+    }
+  ];
+  

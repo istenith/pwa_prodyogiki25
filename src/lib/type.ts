@@ -39,4 +39,8 @@ export interface LinkState {
     title: string;
     description: string;
   }
-  
+   export interface timeline{
+    day : string,
+    description: string,
+    margin: string
+  }
