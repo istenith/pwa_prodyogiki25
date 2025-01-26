@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 export default function Card1() {
-  const list = [
+  const list: {title: string; img: string; price: string;}[] = [
     {
       title: "Orange",
       img: "/images/events.png",

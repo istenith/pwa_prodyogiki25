@@ -168,3 +168,8 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+
+@font-face {
+  font-family: open-sans;
+  src: url("/public/font/open-sans.italic.ttf");
+}

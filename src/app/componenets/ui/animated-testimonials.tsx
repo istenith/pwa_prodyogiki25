@@ -5,9 +5,6 @@ import Image from "next/image";
 import { useEffect, useState, useCallback } from "react";
 
 type Testimonial = {
-  quote: string;
-  name: string;
-  designation: string;
   src: string;
 };
 
@@ -23,7 +20,6 @@ export const AnimatedTestimonials = ({
 
   const randomRotateY = () => Math.floor(Math.random() * 21) - 10;
 
-  // Memoize handleNext function using useCallback
   const handleNext = useCallback(() => {
     setActive((prev) => (prev + 1) % testimonials.length);
   }, [testimonials.length]);
@@ -39,7 +35,7 @@ export const AnimatedTestimonials = ({
     setRotateYValues(randomValues);
 
     if (autoplay) {
-      const interval = setInterval(handleNext, 5000); 
+      const interval = setInterval(handleNext, 3000); 
       return () => clearInterval(interval);
     }
   }, [autoplay, testimonials, handleNext]); 
@@ -81,7 +77,7 @@ export const AnimatedTestimonials = ({
                 >
                   <Image
                     src={testimonial.src}
-                    alt={testimonial.name}
+                    alt={"loading"}
                     width={400}
                     height={400}
                     draggable={true}

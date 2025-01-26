@@ -4,7 +4,6 @@ import { redirect } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-
 export default function Landing() {
   const [animateBack, setAnimateBack] = useState(false);
 
@@ -12,25 +11,24 @@ export default function Landing() {
     setAnimateBack(true);
   };
 
-      useEffect(() => {
-        setTimeout(() => {
-          redirect('/home');
-        }, 2000);
-      }, []);
-    
-
+useEffect (() => {
+  setTimeout(() => {
+    redirect('/home');
+  }, 2000);
+}
+)
   return (
-    <div className="bg-black flex text-white min-h-screen">
-      <div className="justify-between mx-auto mt-80 items-center">
+    <div className="bg-black flex text-white min-h-screen  overflow-hidden">
+      <div className="justify-between mx-auto mt-64 items-center">
         <motion.div
           initial={{ rotate: 0, scale: 0.5 }} 
-          animate={animateBack ? { rotate: 0, scale: 0.5 } : { rotate: -30, scale: 1.2 }} 
+          animate={animateBack ? { rotate: 0, scale: 0.5 } : { rotate: -30, scale: .8 }} 
           transition={{ duration: 0.8}}
           onAnimationComplete={handleAnimationComplete} 
         >
           <Image 
-          height={200}
-          width={200}
+          height={160}
+          width={140}
           className="" src="/images/logo.png" alt="Logo" />
         </motion.div>
       </div>
