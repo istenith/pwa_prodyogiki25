@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Burger from '../home/components/hamburger';
 
+import { useSwipeable } from "react-swipeable";
 
 const cards = [
   {
@@ -19,8 +20,14 @@ const cards = [
     title: "WORKSHOP 2",
     date: "8TH FEB",
   },
+  {
+    id: 3,
+    img: "/ws2.svg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet nulla, neque iusto libero aliquid, enim magni, corporis quam ullam molestiae odit possimus eaque ex!",
+    title: "WORKSHOP 3",
+    date: "8TH FEB",
+  },
 ];
-
 
 const WorkshopSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -28,14 +35,20 @@ const WorkshopSlider = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % cards.length);
-    }, 4000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
 
-  const handleCardChange = (index:number) => {
+  const handleCardChange = (index: number) => {
     setCurrentIndex(index);
   };
+
+  const handlers = useSwipeable({
+    onSwipedLeft: () => setCurrentIndex((prevIndex) => (prevIndex + 1) % cards.length),
+    onSwipedRight: () => setCurrentIndex((prevIndex) => (prevIndex - 1 + cards.length) % cards.length),
+    trackMouse: true,
+  });
 
   return (
     <div
@@ -44,9 +57,10 @@ const WorkshopSlider = () => {
       style={{
         backgroundImage: `url('/background.png')`,
       }}
+      {...handlers} 
     >
       <Burger/>
-      <div className="relative w-[251px] h-[338px] overflow-hidden rounded-[22px] mt-40">
+      <div className="relative w-[251px] h-[338px] overflow-hidden rounded-[22px] mt-32">
         <div
           className="flex transition-transform duration-500"
           style={{
@@ -62,13 +76,13 @@ const WorkshopSlider = () => {
               }}
             >
               <div className="flex flex-col items-center bg-[#121212] opacity-80 rounded-[22px] w-full h-full p-4">
-              <Image
-  src={card.img} 
-  alt={card.title} 
-  width={149} 
-  height={149} 
-  className="mt-4 mb-4 object-cover" 
-/>
+                <Image
+                  src={card.img}
+                  alt={card.title}
+                  width={149}
+                  height={149}
+                  className="mt-4 mb-4 object-cover"
+                />
                 <div className="text-center text-xs text-white mx-4">
                   {card.text}
                 </div>
@@ -78,7 +92,6 @@ const WorkshopSlider = () => {
         </div>
       </div>
 
-    
       <div className="flex space-x-2 mt-4">
         {cards.map((_, index) => (
           <div
