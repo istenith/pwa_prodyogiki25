@@ -5,7 +5,7 @@ import Burger from "../home/components/hamburger";
 
 const SignupPage: React.FC = () => {
   return (
-    <div className="bg-black min-h-screen relative">
+    <div className="bg-black min-h-screen pb-8 relative">
       <Burger />
 
       <div className="text-left text-white font-normal pt-10 px-4 text-[18px]">

@@ -36,7 +36,7 @@ export default function Burger() {
           className="fixed top-2 right-0 w-full min-h-screen bg-black bg-opacity-50 backdrop-blur-lg
           flex flex-col pt-16 pl-8 z-[200] rounded-3xl border border-white border-opacity-20"
         >
-          <ul className="text-white text-2xl space-y-6">
+          <ul className="text-white text-2xl  space-y-6">
             {links.map((link) => (
               <li key={link.href}>
                 <Link
