@@ -1,19 +1,11 @@
 "use client";
 
 import React from 'react';
-import { useState,useEffect } from 'react';
 import Image from 'next/image';
 import { MdKeyboardArrowRight } from "react-icons/md";
-import CircularProgressBar from '../componenets/progressbar';
+import Display from '../componenets/eventdisplay';
 
 const Profile = () => {
-
-  const eventNames = [
-    "Abhedya",
-    "Chemystrey",
-    "Aqua Fortress",
-    "Mouse Trap",
-  ];
 
 const events= [
   {
@@ -24,7 +16,7 @@ const events= [
    {
     id: 2,
     img: "/image77.jpg",
-    text:"abhedya"
+    text:"Abhedya 4.0"
    },
    {
     id: 3,
@@ -36,52 +28,19 @@ const events= [
     img: "/image77.jpg",
     text:"CSE Event"
    },
-//    {
-//     id: 5,
-//     img: "/image77.jpg",
-//     text:"event5"
-//    },
-//    {
-//     id: 6,
-//     img: "/image77.jpg",
-//     text:"event6"
-//    },
-//    {
-//     id: 7,
-//     img: "/image77.jpg",
-//     text:"event7"
-//    },
-//    {
-//     id: 8,
-//     img: "/image77.jpg",
-//     text:"event8"
-//    },
 ];
 
 
-// const [currentIndex, setCurrentIndex] = useState(0);
-
-// useEffect(() => {
-//   const interval = setInterval(() => {
-//     setCurrentIndex((prevIndex) => (prevIndex + 4) % events.length);
-//   }, 4000);
-
-//   return () => clearInterval(interval);
-// }, [events.length]);
-
-// const handleCardChange = (index: number) => {
-//   setCurrentIndex(index);
-// };
-
   return (
     <div
-      className="flex flex-col items-center min-h-screen bg-cover bg-center bg-no-repeat "
+      className="flex flex-col items-center h-screen bg-cover bg-center bg-no-repeat min-w-screen"
        style={{
         backgroundImage: `url('/background.png')`,
        }}
     >
       <div className='participant_info font-inter flex flex-col text-white items-center justify-center'>
-        <div className="w-32 h-32 rounded-full overflow-hidden my-3">
+        <div className="relative flex items-center justify-center w-36 h-36 rounded-full bg-gradient-to-b from-[#1B7774] to-[#0E1F25]">
+        <div className="w-32 h-32 rounded-full overflow-hidden my-3 ">
         <Image 
   src="/profile.svg" 
   alt="Circular Image" 
@@ -89,14 +48,16 @@ const events= [
   height={500} 
   className="w-full h-full object-cover" 
 />
+</div>
         </div>
-        <div className='name text-md font-semibold text-white'>Amit Singh</div>
-        <div className='prodyid text-md font-semibold py-3 text-white'>prody_id 011</div>
-        <div className='points text-md font-semibold text-white'>1000</div>
-        <div className='points text-sm font-medium mb-8 text-white'>Prody Points</div>
+        <div className='name text-lg mt-2 font-semibold text-white'>Amit Singh Bathyal</div>
+        <div className='prodyid text-lg font-semibold py-3 text-white'>prody_id 011</div>
+        <div className='points text-lg font-semibold text-white'>1000</div>
+        <div className='points text-base font-medium mb-8 text-white'>Prody Points</div>
       </div>
-      <CircularProgressBar events={eventNames.length} eventNames={eventNames}/>
-      <div className='flex px-4 pt-7 pb-2 gap-52'>
+      <Display/>
+      {/* <CircularProgressBar events={eventNames.length} eventNames={eventNames}/> */}
+      <div className='flex px-6 pt-7 pb-2 justify-between w-full'>
       <div className='text-white font-semibold text-lg'>More Events</div>
       <MdKeyboardArrowRight size={24} className='text-white'/>
       </div>
@@ -105,22 +66,22 @@ const events= [
   {events.map((event) => (
     <div key={event.id} className="flex items-center mb-4 hover:scale-110 transition-all duration-300">
       
-      <div
-        className="circle z-10 w-16 h-16 rounded-full bg-cover bg-center bg-black border-[#010101] border-[3px] "
-        
-      >
+      
         <Image
               src={event.img}
               alt={event.text}
               width={64} 
               height={64} 
-              className="rounded-full object-cover"
+              className="rounded-full object-cover w-[14vw] translate-x-2"
             />
-      </div>
-
-      <div
-        className="rectangle w-32 h-12 bg-[#FFFFFF] bg-opacity-15 pl-8 py-3 rounded-r-[20px] text-sm font-medium -ml-6"
-      >
+      <Image
+      src="/Subtract.svg" 
+  alt="Circular Image" 
+  width={500} 
+  height={500} 
+  className="w-[30vw] relative" 
+/>
+      <div className='absolute translate-x-20 -translate-y-2 bg- px-2'>
         {event.text}
         
       </div>
