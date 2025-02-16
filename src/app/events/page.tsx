@@ -4,12 +4,24 @@ import { motion } from "framer-motion";
 import Burger from "../home/components/hamburger";
 import Image from "next/image";
 import { events } from "@/lib/constants";
+import EventRegister from "../componenets/ui/EventRegister";
 
 export default function Event() {
   const [visibleEvent, setVisibleEvent] = useState<number | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState<string>("");
 
   const toggleEventDetails = (index: number) => {
-    setVisibleEvent((prev) => (prev === index ? null : index)); 
+    setVisibleEvent((prev) => (prev === index ? null : index));
+  };
+
+  const handleRegisterClick = (eventName: string) => {
+    setSelectedEvent(eventName);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -19,8 +31,8 @@ export default function Event() {
         <div className="text-center pt-24 text-white font-sans text-[28px]">
           OUR EVENTS
         </div>
-        <div className="flex flex-col pt-8   text-white">
-          <div className="w-full flex flex-col ">
+        <div className="flex flex-col pt-8 text-white">
+          <div className="w-full flex flex-col">
             {events.map((event, index) => (
               <motion.div
                 key={index}
@@ -36,7 +48,7 @@ export default function Event() {
                 {visibleEvent !== index && (
                   <motion.div
                     onClick={() => toggleEventDetails(index)}
-                    className="w-3/4 border-x-[3px] border-t-[3px] border-b-[1px] border-teal-600 rounded-[20px] py-3 pl-4 text-[24px]  cursor-pointer transition-transform duration-500"
+                    className="w-3/4 border-x-[3px] border-t-[3px] border-b-[1px] border-teal-600 rounded-[20px] py-3 pl-4 text-[24px] cursor-pointer transition-transform duration-500"
                     whileHover={{
                       scale: 1.05,
                       transition: { duration: 0.3 },
@@ -84,7 +96,10 @@ export default function Event() {
                         {event.description}
                       </div>
                       <div className="text-center p-4">
-                        <button className="border px-3 border-white">
+                        <button
+                          className="border px-3 border-white"
+                          onClick={() => handleRegisterClick(event.name)}
+                        >
                           Register
                         </button>
                       </div>
@@ -96,6 +111,11 @@ export default function Event() {
           </div>
         </div>
       </div>
+
+      
+      {isModalOpen && (
+        <EventRegister eventName={selectedEvent} onClose={handleCloseModal} />
+      )}
     </>
   );
 }
