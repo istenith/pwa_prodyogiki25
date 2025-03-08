@@ -2,11 +2,28 @@
 import Burger from '../home/components/hamburger';
 import Link from 'next/link';
 import React from 'react';
+import { useState , useEffect } from 'react';
 import Image from 'next/image';
 import { MdKeyboardArrowRight } from "react-icons/md";
 import Display from '../componenets/eventdisplay';
 
 const Profile = () => {
+
+  const profileImages = ["/p1.svg", "/p2.svg", "/p3.svg", "/p4.svg", "/p5.svg"];
+  const [profileImg, setProfileImg] = useState("");
+
+  useEffect(() => {
+    // Check if a profile image is already stored
+    const storedImage = localStorage.getItem("profileImg");
+    if (storedImage) {
+      setProfileImg(storedImage);
+    } else {
+      // Select a random image and store it
+      const randomImg = profileImages[Math.floor(Math.random() * profileImages.length)];
+      localStorage.setItem("profileImg", randomImg);
+      setProfileImg(randomImg);
+    }
+  }, []);
 
 const events= [
   {
@@ -40,16 +57,19 @@ const events= [
        }}
     >
       <Burger/>
-      <div className='mt-12 participant_info font-inter flex flex-col text-white items-center justify-center'>
+      <div className="mt-20 participant_info font-inter flex flex-col text-white items-center justify-center">
         <div className="relative flex items-center justify-center w-36 h-36 rounded-full bg-gradient-to-b from-[#1B7774] to-[#0E1F25]">
-        <div className="w-32 h-32 rounded-full overflow-hidden my-3 ">
-        <Image 
-  src="/profile.svg" 
-  alt="Circular Image" 
-  width={500} 
-  height={500} 
-  className="w-full h-full object-cover" 
-/>
+          <div className="w-28 h-28 rounded-full overflow-hidden my-3 ">
+            {profileImg && (
+              <Image
+                src={profileImg}
+                alt="Profile Image"
+                width={500}
+                height={500}
+                className="w-full h-full object-cover"
+              />
+            )}
+        
 </div>
         </div>
         <div className='name text-lg mt-2 font-semibold text-white'>Amit Singh Bathyal</div>

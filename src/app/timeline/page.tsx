@@ -1,67 +1,65 @@
-"use client";
-import React from 'react';
-import Burger from '../home/components/hamburger';
-import { motion } from 'framer-motion';
-import { timelineData3 } from '@/lib/constants';
+"use client"
+import { useEffect, useRef } from "react";
+import { timelineData, Day } from "@/lib/timeline";
+import Burger from "../home/components/hamburger";
 
 const Timeline = () => {
+  const eventRefs = useRef<Array<HTMLDivElement | null>>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("opacity-100", "translate-y-0");
+            entry.target.classList.remove("opacity-0", "translate-y-10");
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the element is visible
+      }
+    );
+
+    eventRefs.current.forEach((event) => {
+      if (event) observer.observe(event);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="min-h-screen py-10">
-      <Burger />
-      <div className="text-center text-white font-bold text-[28px]">
-        Timeline
-      </div>
+    <div className="min-h-screen bg-black p-6">
+      <Burger/>
+      <div className="flex items-center justify-center bg-black mt-12">
+  <div className="text-white text-2xl font-semibold">Timeline</div>
+</div>
 
-      <div className="flex flex-col">
-        {timelineData3.map((event, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y:40 }}
-            animate={{ opacity: 1, y:0}}
-            transition={{ duration: 1.2, delay: index * 1.2 }} 
-          >
-            {/* Left for odd index */}
-            {index % 2 !== 0 && (
+      {timelineData.map((day: Day, dayIndex: number) => (
+        <div key={day.day} className="mb-8 ">
+          
+          <h2 className="text-2xl font-bold text-teal-500 mb-4">{day.day}</h2>
+          {day.events.map((event, eventIndex) => {
+            const refIndex = dayIndex * day.events.length + eventIndex;
+            return (
               <div
-                className="w-6/12 px-2 flex absolute left-2 flex-row"
-                style={{ marginTop: event.margin }} 
-              >
-                <div className="flex flex-col items-center px-4">
-                  <div className="text-white w-5/12">{event.day}</div>
-                  <div className="w-full mt-4 h-[250px] overflow-scroll text-white">{event.description}</div>
-                </div>
-
-                <div className="flex flex-col">
-                  <div className="h-72 border-l-4 pb-2 mx-auto border-white"></div>
-                  <div className="h-5 w-5 mt-10 rounded-full bg-white"></div>
-                </div>
+  key={event.title}
+  ref={(el) => {
+    if (el) {
+      eventRefs.current[refIndex] = el; // Assign the ref only if el is not null
+    }
+  }}
+  className="opacity-0 translate-y-10 transition-all duration-500 ease-in-out bg-teal-900 bg-opacity-20 border-l-4 border-teal-500 p-4 rounded-lg mb-4"
+>
+                <h3 className="text-xl font-semibold text-teal-300">
+                  {event.title}
+                </h3>
+                <p className="text-gray-300">{event.description}</p>
               </div>
-            )}
-
-            {/* Right for even index */}
-            {index % 2 === 0 && (
-              <div
-                className="w-6/12 flex absolute right-3 flex-row"
-                style={{ marginTop: event.margin }} 
-              >
-                <div className="h-72 border-l-4 mx-auto border-white"></div>
-                <div className=" -ml-3 mt-4">
-                <div className="h-5 w-5 mt-80 rounded-full bg-white"></div>
-             
-                  </div>
-            
-                <div className="flex flex-col items-center px-4">
-                  <div className="text-white w-5/12">{event.day}</div>
-                  <div className="w-full mt-4 h-[250px] overflow-scroll text-white">{event.description}</div>
-                </div>
-
-
-              
-              </div>
-            )}
-          </motion.div>
-        ))}
-      </div>
+            );
+          })}
+        </div>
+      ))}
     </div>
   );
 };

@@ -11,7 +11,7 @@ export default function Burger() {
   return (
     <>
       <div
-        className="absolute top-12 right-8 cursor-pointer z-[500]"
+        className="absolute top-8 right-8 cursor-pointer z-[500]"
         onClick={toggleMenu}
       >
         <div

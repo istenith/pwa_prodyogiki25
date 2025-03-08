@@ -13,7 +13,6 @@ const EventRegister: React.FC<RegisterModalProps> = ({ eventName, onClose }) => 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
     console.log("Prody ID:", prodyId);
     console.log("Team ID:", teamId);
     onClose(); 
@@ -21,12 +20,12 @@ const EventRegister: React.FC<RegisterModalProps> = ({ eventName, onClose }) => 
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
-      
-      <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm" />
+      {/* Full Page Blur Effect */}
+      <div className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-md" onClick={onClose} />
 
-      
+      {/* Modal */}
       <motion.div
-        className="bg-black border-2 border-teal-600 rounded-[30px] w-[90%] max-w-[400px] p-6 relative z-50"
+        className="bg-black border-2 border-teal-600 rounded-[30px] w-[90%] max-w-[400px] p-6 relative z-50 shadow-lg"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.3 }}
@@ -42,7 +41,7 @@ const EventRegister: React.FC<RegisterModalProps> = ({ eventName, onClose }) => 
               type="text"
               value={prodyId}
               onChange={(e) => setProdyId(e.target.value)}
-              className="w-full p-2 border border-teal-600 bg-black text-white rounded-[10px]"
+              className="w-full p-2 border border-teal-600 bg-black text-white rounded-[10px] focus:ring-2 focus:ring-teal-500"
               placeholder="Enter your Prody ID"
               required
             />
@@ -54,7 +53,7 @@ const EventRegister: React.FC<RegisterModalProps> = ({ eventName, onClose }) => 
               type="text"
               value={teamId}
               onChange={(e) => setTeamId(e.target.value)}
-              className="w-full p-2 border border-teal-600 bg-black text-white rounded-[10px]"
+              className="w-full p-2 border border-teal-600 bg-black text-white rounded-[10px] focus:ring-2 focus:ring-teal-500"
               placeholder="Enter your Team ID"
               required
             />
@@ -64,13 +63,13 @@ const EventRegister: React.FC<RegisterModalProps> = ({ eventName, onClose }) => 
             <button
               type="button"
               onClick={onClose}
-              className="bg-gray-500 text-white px-4 py-2 rounded mr-2"
+              className="bg-gray-500 text-white px-4 py-2 rounded mr-2 hover:bg-gray-600"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="bg-teal-600 text-white px-4 py-2 rounded"
+              className="bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-700"
             >
               Register
             </button>
